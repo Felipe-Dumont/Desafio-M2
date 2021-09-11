@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Cidade;
 use App\Http\Controllers\Api\Grupo;
+use App\Http\Controllers\Api\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('grupo', Grupo::class);
 Route::apiResource('cidade', Cidade::class);
+Route::apiResource('produto', Produto::class);
