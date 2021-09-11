@@ -23,4 +23,9 @@ class Desconto extends Model
 
         $this->attributes['campanha'] = $idCampanha->id;
     }
+
+    public function campanha()
+    {
+        return $this->hasOne('Campanha', 'id', 'campanha');
+    }
 }

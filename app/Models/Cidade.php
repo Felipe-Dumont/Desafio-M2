@@ -24,4 +24,9 @@ class Cidade extends Model
 
         $this->attributes['grupo'] = $idGrupo->id;
     }
+
+    public function grupo()
+    {
+        return $this->hasOne('Grupo', 'id', 'grupo');
+    }
 }
