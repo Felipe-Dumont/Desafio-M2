@@ -10,6 +10,6 @@ class Grupo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nome'
+        'nome',
     ];
 }

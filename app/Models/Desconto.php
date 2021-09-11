@@ -17,7 +17,7 @@ class Desconto extends Model
 
     public function setGrupoAttribute(int $value): void
     {
-        if (!$idCampanha = Campanha::id($value)) {
+        if (!$idCampanha = Campanha::find($value)) {
             throw new Exception('Campanha não encontrado.');
         }
 

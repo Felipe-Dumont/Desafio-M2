@@ -18,7 +18,7 @@ class Cidade extends Model
 
     public function setGrupoAttribute(int $value): void
     {
-        if (!$idGrupo = Grupo::id($value)) {
+        if (!$idGrupo = Grupo::find($value)) {
             throw new Exception('Grupo não encontrado.');
         }
 
