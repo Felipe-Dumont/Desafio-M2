@@ -25,7 +25,12 @@ class Campanha extends JsonResource
                 return [
                     "id" => $valor->id,
                     "nome" => $valor->nome,
-                    "valor_com_desconto" => $valor->valor - ($valor->valor / 100 * Desconto::where('campanha', $campanha)->first()->porcentagem_desconto)
+                    "valor_com_desconto" => number_format(
+                        $valor->valor - ($valor->valor / 100 * (Desconto::where('campanha', $campanha)->first() ? Desconto::where('campanha', $campanha)->first()->porcentagem_desconto : 0)),
+                        2,
+                        '.',
+                        ''
+                    ) . " R$"
                 ];
             }),
         ];
