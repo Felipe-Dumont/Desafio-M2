@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Desconto;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Campanha extends JsonResource
@@ -14,10 +15,19 @@ class Campanha extends JsonResource
      */
     public function toArray($request)
     {
+        $campanha = $this->id;
+
         return [
-            'id' => $this->id,
+            'id' => $campanha,
             'campanha' => $this->nome,
-            'grupos' => $this->grupo
+            'grupos' => Grupo::collection($this->grupo),
+            'produtos' => Produto::collection($this->produto)->map(function ($valor) use ($campanha) {
+                return [
+                    "id" => $valor->id,
+                    "nome" => $valor->nome,
+                    "valor_com_desconto" => $valor->valor - ($valor->valor / 100 * Desconto::where('campanha', $campanha)->first()->porcentagem_desconto)
+                ];
+            }),
         ];
     }
 }
