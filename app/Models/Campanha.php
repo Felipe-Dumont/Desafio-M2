@@ -18,4 +18,9 @@ class Campanha extends Model
     {
         return $this->belongsToMany(Grupo::class, 'grupo_campanha', 'campanha', 'grupo');
     }
+
+    public function produto()
+    {
+        return $this->belongsToMany(Produto::class, 'campanha_produto', 'campanha', 'produto');
+    }
 }

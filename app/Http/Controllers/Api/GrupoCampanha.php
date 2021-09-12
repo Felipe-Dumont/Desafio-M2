@@ -66,10 +66,6 @@ class GrupoCampanha extends Controller
     {
         $this->validaGrupoAndCampanhaExistente($request->campanha, $request->grupo);
 
-        if (!empty($grupoCampanhaExistente)) {
-            throw new Exception('Já existe um grupo com essa campanha com status ativo!');
-        }
-
         $grupoCampanha = ModelsGrupoCampanha::find($id);
         $grupoCampanha->campanha = $request->campanha;
         $grupoCampanha->grupo = $request->grupo;
