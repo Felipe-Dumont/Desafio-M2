@@ -56,11 +56,11 @@ Requisitos:
 
 ## MER
 
-![Untitled](Desafio%20M2%20-%20Documentac%CC%A7a%CC%83o%2040edf908cc2f418dbd90719da65152b4/Untitled.png)
+![Untitled](https://github.com/Felipe-Dumont/desafio-m2/blob/master/Desafio%20M2%20-%20Documenta%C3%A7%C3%A3o/Untitled%201.png)
 
 ## Rotas
 
-![Untitled](Desafio%20M2%20-%20Documentac%CC%A7a%CC%83o%2040edf908cc2f418dbd90719da65152b4/Untitled%201.png)
+![Untitled](https://github.com/Felipe-Dumont/desafio-m2/blob/master/Desafio%20M2%20-%20Documenta%C3%A7%C3%A3o/Untitled.png)
 
 Arquivo de configuração para o postman [https://github.com/Felipe-Dumont/desafio-m2/blob/master/m2.postman_collection.json](https://github.com/Felipe-Dumont/desafio-m2/blob/master/m2.postman_collection.json)
 
