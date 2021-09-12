@@ -15,15 +15,6 @@ class Desconto extends Model
         'campanha'
     ];
 
-    public function setGrupoAttribute(int $value): void
-    {
-        if (!$idCampanha = Campanha::find($value)) {
-            throw new Exception('Campanha não encontrado.');
-        }
-
-        $this->attributes['campanha'] = $idCampanha->id;
-    }
-
     public function campanha()
     {
         return $this->hasOne('Campanha', 'id', 'campanha');

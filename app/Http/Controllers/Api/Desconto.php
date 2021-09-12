@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Desconto as RequestsDesconto;
 use App\Http\Resources\Desconto as ResourcesDesconto;
+use App\Models\Campanha;
 use App\Models\Desconto as ModelsDesconto;
 use Exception;
 use Illuminate\Http\Request;
@@ -31,11 +32,15 @@ class Desconto extends Controller
      */
     public function store(RequestsDesconto $request)
     {
-        $campanhaExistente = ModelsDesconto::where('porcentagem_desconto', $request->porcentagem_desconto)
+        if (!Campanha::where('id', $request->campanha)->first()) {
+            throw new Exception('Campanha não encontrada');
+        }
+
+        $campanhaExistente = ModelsDesconto::where('campanha', $request->campanha)
             ->first();
 
         if (!empty($campanhaExistente)) {
-            throw new Exception('Esse desconto já esta cadastrada!');
+            throw new Exception('já existe desconto cadastrada para os produtos dessa campanha!');
         }
 
         ModelsDesconto::create($request->all());
@@ -65,6 +70,7 @@ class Desconto extends Controller
     {
         $desconto = ModelsDesconto::find($id);
         $desconto->porcentagem_desconto = $request->porcentagem_desconto;
+        $desconto->campanha = $request->campanha;
         $desconto->save();
     }
 

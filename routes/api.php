@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Campanha;
 use App\Http\Controllers\Api\Cidade;
+use App\Http\Controllers\Api\Desconto;
 use App\Http\Controllers\Api\Grupo;
 use App\Http\Controllers\Api\Produto;
 use Illuminate\Http\Request;
@@ -22,3 +23,4 @@ Route::apiResource('grupo', Grupo::class);
 Route::apiResource('cidade', Cidade::class);
 Route::apiResource('produto', Produto::class);
 Route::apiResource('campanha', Campanha::class);
+Route::apiResource('desconto', Desconto::class);
