@@ -13,4 +13,9 @@ class Campanha extends Model
     protected $fillable = [
         'nome'
     ];
+
+    public function grupo()
+    {
+        return $this->belongsToMany(Grupo::class, 'grupo_campanha', 'campanha', 'grupo');
+    }
 }

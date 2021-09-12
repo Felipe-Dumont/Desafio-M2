@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Produto extends FormRequest
+class Campanha extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,20 +16,22 @@ class Produto extends FormRequest
         return true;
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
         return [
-            'nome' => 'required|min:2',
-            'valor' => 'required|min:0|numeric',
+            'nome' => 'required|min:2'
         ];
     }
 
     public function messages()
     {
         return [
-            'nome.required' => 'Nome do produto obrigatório!',
-            'valor.required' => 'Valor do produto obrigatório!',
-            'valor.min' => 'Valor do produto não pode ser menor que zero!'
+            'nome.required' => 'Nome da campanha obrigatório!'
         ];
     }
 }

@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Grupo extends Model
+class GrupoCampanha extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'nome',
-    ];
+    protected $table = 'grupo_campanha';
 
-    public function campanha()
-    {
-        return $this->belongsToMany('Campanha', 'grupo_campanha', 'grupo', 'campanha');
-    }
+    protected $fillable = [
+        'grupo',
+        'campanha',
+        'ativo',
+    ];
 }
