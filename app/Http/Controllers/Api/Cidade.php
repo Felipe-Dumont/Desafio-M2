@@ -31,7 +31,13 @@ class Cidade extends Controller
      */
     public function store(RequestsCidade $request)
     {
-        $this->validadeCidadeExistente($request->all());
+        $cidadeExistente = ModelsCidade::where('nome', $request->nome)
+            ->where('estado', $request->estado)
+            ->first();
+
+        if (!empty($cidadeExistente)) {
+            throw new Exception('Essa cidade já esta cadastrada!');
+        }
 
         ModelsCidade::create($request->all());
     }
@@ -58,7 +64,14 @@ class Cidade extends Controller
      */
     public function update(RequestsCidade $request, $id)
     {
-        $this->validadeCidadeExistente($request->all());
+        $cidadeExistente = ModelsCidade::where('nome', $request->nome)
+            ->where('estado', $request->estado)
+            ->where('id', '!=', $id)
+            ->first();
+
+        if (!empty($cidadeExistente)) {
+            throw new Exception('Essa cidade já esta cadastrada!');
+        }
 
         $cidade = ModelsCidade::find($id);
         $cidade->nome = $request->nome;
@@ -82,16 +95,5 @@ class Cidade extends Controller
         }
 
         $grupo->delete();
-    }
-
-    private function validadeCidadeExistente(array $request): void
-    {
-        $cidadeExistente = ModelsCidade::where('nome', $request['nome'])
-            ->where('estado', $request['estado'])
-            ->first();
-
-        if (!empty($cidadeExistente)) {
-            throw new Exception('Essa cidade já esta cadastrada!');
-        }
     }
 }
