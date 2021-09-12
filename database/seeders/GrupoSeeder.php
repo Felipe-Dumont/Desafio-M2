@@ -14,6 +14,10 @@ class GrupoSeeder extends Seeder
      */
     public function run()
     {
-        Grupo::factory()->count(10)->make();
+        $grupos = Grupo::factory()->count(20)->make()->toArray();
+
+        foreach ($grupos as $grupo) {
+            Grupo::create($grupo);
+        }
     }
 }

@@ -14,10 +14,10 @@ class CidadeSeeder extends Seeder
      */
     public function run()
     {
-        Cidade::create([
-            'nome' => 'Mandaguaçu',
-            'estado' => 'PR',
-            'grupo' => 3
-        ]);
+        $cidades = Cidade::factory()->count(20)->make()->toArray();
+
+        foreach ($cidades as $cidade) {
+            Cidade::create($cidade);
+        }
     }
 }
