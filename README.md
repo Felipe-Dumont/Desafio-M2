@@ -7,7 +7,7 @@ Montar uma api RESTful com laravel para alimentar uma SPA com as seguintes funç
 1. Cadastrar/Editar/Listar/Excluir cidades
 2. Cadastrar/Editar/Listar/Excluir grupo de cidades
 3. Cadastrar/Editar/Listar/Excluir Campanhas para o grupo de cidades onde cada
-grupo possui somente uma campanha ativa
+   grupo possui somente uma campanha ativa
 4. Cadastrar/Editar/Listar/Excluir desconto para os produtos da campanha
 5. Cadastrar/Editar/Listar/Excluir produtos
 
@@ -18,11 +18,11 @@ Cada cidade possui somente um grupo
 
 Requisitos:
 
-- [ ]  PHP 8
-- [ ]  Composer
-- [ ]  Postgresql
-    - [ ]  Habilitar extensão do pgsql no arquivo de php.ini
-- [ ]  GIT
+-   [ ] PHP 8
+-   [ ] Composer
+-   [ ] Postgresql
+    -   [ ] Habilitar extensão do pgsql no arquivo de php.ini
+-   [ ] GIT
 
 1. Faça o clone do projeto do github para sua maquina.
 2. Abra o projeto com algum editor de texto ou IDE.
@@ -35,7 +35,7 @@ Requisitos:
     ```
 
 4. Busque na raiz do projeto o arquivo **.env.example** e renomeio para **.env**
-5. Abra o .env e configure as variáveis para conexão com banco 
+5. Abra o .env e configure as variáveis para conexão com banco
 
     ```php
     DB_CONNECTION=pgsql
@@ -46,7 +46,7 @@ Requisitos:
     DB_PASSWORD=senha
     ```
 
-6. Rode os seguintes comandos no terminal para rodar as migrations e os seeds e em seguida subir o projeto para teste: 
+6. Rode os seguintes comandos no terminal para rodar as migrations e os seeds e em seguida subir o projeto para teste:
 
     ```bash
     php artisan migrate:install
